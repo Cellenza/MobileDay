@@ -4,33 +4,33 @@ using System.Net;
 using Foundation;
 using Newtonsoft.Json.Linq;
 using WatchKit;
+using Coffee.Services;
 
 namespace Coffee.iOSWatchKitExtension
 {
 	partial class CoffeeTableViewController : WKInterfaceController
 	{
-		private const string CoffeeUrl = "http://opendata.paris.fr/api/records/1.0/search?dataset=liste-des-cafes-a-un-euro&facet=arrondissement&rows=200";
-		private JObject jsonObject;
+		private readonly ICoffeeService _coffeeService;
 
 		public CoffeeTableViewController (IntPtr handle) : base (handle)
 		{
-			WebClient client = new WebClient ();
-			var jsonString = client.DownloadString(new Uri (CoffeeUrl, UriKind.Absolute));
-			jsonObject = JObject.Parse (jsonString);
+			_coffeeService = CoffeeService.Instance;
 		}
 
-		public override void WillActivate ()
+		public override async void WillActivate ()
 		{
 			base.WillActivate ();
 
-			this.CoffeeTable.SetNumberOfRows (jsonObject.Value<int> ("nhits"), "default");
+			await _coffeeService.InitializeAsync ();
 
-			var records = jsonObject ["records"];
+			this.CoffeeTable.SetNumberOfRows (_coffeeService.Count, "default");
+
+			var records = _coffeeService.Records;
 
 			int i = 0;
 			foreach (var record in records) {
-				var recordFields = record ["fields"];
-				var coffeeName = recordFields.Value<string> ("nom_du_cafe");
+				var recordFields = record.fields;
+				var coffeeName = recordFields.nom_du_cafe;
 
 				var rowController = (CoffeeTableRowController)CoffeeTable.GetRowController ((nint)i);
 				rowController.SetLabelText(coffeeName);
@@ -45,14 +45,11 @@ namespace Coffee.iOSWatchKitExtension
 		    {
 		        try
 		        {
-		            var records = jsonObject["records"];
-		            var record = records.ElementAt((int) rowIndex);
-		            var recordGeometry = record["geometry"];
-		            var recordCoordinates = recordGeometry["coordinates"];
-		            var latitude = recordCoordinates.Value<double>(1);
-		            var longitude = recordCoordinates.Value<double>(0);
-		            var recordFields = record["fields"];
-		            var coffeeName = recordFields.Value<string>("nom_du_cafe");
+					var record = _coffeeService.Records[(int)rowIndex];
+					var recordCoordinates = record.geometry.coordinates;
+		            var latitude = recordCoordinates[1];
+		            var longitude = recordCoordinates[0];
+					var coffeeName = record.fields.nom_du_cafe;
 
 		            return new NSString(latitude + "@" + longitude + "@" + coffeeName);
 		        }
