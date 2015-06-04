@@ -115,6 +115,10 @@
       <Name>Coffee.iOSWatchKitExtension</Name>
       <IsAppExtension>True</IsAppExtension>
     </ProjectReference>
+    <ProjectReference Include="..\Coffee.Services\Coffee.Services.csproj">
+      <Project>{319AFB7B-B562-48AE-831F-33E78514C222}</Project>
+      <Name>Coffee.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Cafe.jpg" />

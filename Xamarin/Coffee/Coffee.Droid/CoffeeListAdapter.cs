@@ -3,29 +3,26 @@ using System.Linq;
 using Android.App;
 using Android.Views;
 using Android.Widget;
+using Coffee.Services;
 
 namespace Coffee.Droid
 {
     public class CoffeeListAdapter : BaseAdapter
     {
         private readonly Activity _context;
-        private const string CoffeeUrl = "http://opendata.paris.fr/api/records/1.0/search?dataset=liste-des-cafes-a-un-euro&facet=arrondissement&rows=200";
-        private Newtonsoft.Json.Linq.JObject jsonObject;
+		private readonly ICoffeeService coffeeService;
 
-        public CoffeeListAdapter (Activity context)
+		public CoffeeListAdapter (Activity context, ICoffeeService coffeeService)
         {
+			this.coffeeService = coffeeService;
             _context = context;
-
-            System.Net.WebClient client = new System.Net.WebClient ();
-            var jsonString = client.DownloadString(new Uri (CoffeeUrl, UriKind.Absolute));
-            jsonObject = Newtonsoft.Json.Linq.JObject.Parse (jsonString);
         }
 
         public override int Count
         {
             get
             {
-                return jsonObject.Value<int> ("nhits");
+				return coffeeService.Count;
             }
         }
 
@@ -45,23 +42,15 @@ namespace Coffee.Droid
             if (view == null) // otherwise create a new one
                 view = _context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null);
 
-            var records = jsonObject ["records"];
-            var record = records.ElementAt(position);
-            var recordFields = record ["fields"];
-            var coffeeName = recordFields.Value<string> ("nom_du_cafe");
-
-            view.FindViewById<TextView> (Android.Resource.Id.Text1).Text = coffeeName;
+			view.FindViewById<TextView> (Android.Resource.Id.Text1).Text = coffeeService.Records[position].fields.nom_du_cafe;
             return view;
         }
 
         public string GetMapUrl(int position)
         {
-            var records = jsonObject ["records"];
-            var record = records.ElementAt (position);
-            var recordGeometry = record ["geometry"];
-            var recordCoordinates = recordGeometry ["coordinates"];
-            var latitude = recordCoordinates.Value<double> (1);
-            var longitude = recordCoordinates.Value<double> (0);
+			var recordCoordinates = coffeeService.Records[position].geometry.coordinates;
+            var latitude = recordCoordinates[1];
+            var longitude = recordCoordinates[0];
 
             var mapUrl = "http://www.openstreetmap.org/?lat="
                          +latitude.ToString(System.Globalization.CultureInfo.InvariantCulture)

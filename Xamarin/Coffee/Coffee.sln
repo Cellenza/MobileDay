@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeForms.Droid", "Droid\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeForms.UITests", "UITests\CoffeeForms.UITests.csproj", "{792AC84B-4A28-483E-8D24-FBF4937AA7F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coffee.Services", "Coffee.Services\Coffee.Services.csproj", "{319AFB7B-B562-48AE-831F-33E78514C222}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhone = Debug|iPhone
@@ -51,6 +53,14 @@ Global
 		{2FA07A86-EE0C-4698-90FB-B678B06A7974}.Release|iPhone.Build.0 = Release|iPhone
 		{2FA07A86-EE0C-4698-90FB-B678B06A7974}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{2FA07A86-EE0C-4698-90FB-B678B06A7974}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{319AFB7B-B562-48AE-831F-33E78514C222}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{319AFB7B-B562-48AE-831F-33E78514C222}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{319AFB7B-B562-48AE-831F-33E78514C222}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{319AFB7B-B562-48AE-831F-33E78514C222}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{319AFB7B-B562-48AE-831F-33E78514C222}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{319AFB7B-B562-48AE-831F-33E78514C222}.Release|iPhone.Build.0 = Release|Any CPU
+		{319AFB7B-B562-48AE-831F-33E78514C222}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{319AFB7B-B562-48AE-831F-33E78514C222}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{3B0517B2-85FE-4DDB-B54F-6EA0A9A39DF1}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{3B0517B2-85FE-4DDB-B54F-6EA0A9A39DF1}.Debug|iPhone.Build.0 = Debug|iPhone
 		{3B0517B2-85FE-4DDB-B54F-6EA0A9A39DF1}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator

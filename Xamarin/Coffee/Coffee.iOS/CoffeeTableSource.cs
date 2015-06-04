@@ -2,28 +2,26 @@ using System;
 using System.Linq;
 using Foundation;
 using UIKit;
+using Coffee.Services;
 
 namespace Coffee
 {
     public class CoffeeTableSource : UITableViewSource
     {
         private const string cellIdentifier = "CoffeeTableViewCellIdentifier";
-        private const string CoffeeUrl = "http://opendata.paris.fr/api/records/1.0/search?dataset=liste-des-cafes-a-un-euro&facet=arrondissement&rows=200";
-        private Newtonsoft.Json.Linq.JObject jsonObject;
+       
 		private CoffeeTableViewController _controller;
+		private ICoffeeService _coffeeService;
 
-		public CoffeeTableSource (CoffeeTableViewController controller)
+		public CoffeeTableSource (CoffeeTableViewController controller, ICoffeeService coffeeService)
         {
 			_controller = controller;
-            System.Net.WebClient client = new System.Net.WebClient ();
-            var jsonString = client.DownloadString(new Uri (CoffeeUrl, UriKind.Absolute));
-
-            jsonObject = Newtonsoft.Json.Linq.JObject.Parse (jsonString);
+			_coffeeService = coffeeService;
         }
 
         public override nint RowsInSection (UITableView tableview, nint section)
         {
-            return (nint)(jsonObject.Value<int>("nhits"));
+			return (nint)_coffeeService.Count;
         }
 
         public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
@@ -33,10 +31,8 @@ namespace Coffee
             if (cell == null)
                 cell = new UITableViewCell (UITableViewCellStyle.Default, cellIdentifier);
 
-            var records = jsonObject ["records"];
-            var record = records.ElementAt ((int)indexPath.Row);
-            var recordFields = record ["fields"];
-            var coffeeName = recordFields.Value<string> ("nom_du_cafe");
+			var record = _coffeeService.Records[(int)indexPath.Row];
+			var coffeeName = record.fields.nom_du_cafe;
 
             cell.TextLabel.Text = coffeeName;
 
@@ -47,12 +43,10 @@ namespace Coffee
         {
 			try
 			{
-	            var records = jsonObject ["records"];
-	            var record = records.ElementAt ((int)indexPath.Row);
-	            var recordGeometry = record ["geometry"];
-	            var recordCoordinates = recordGeometry ["coordinates"];
-	            var latitude = recordCoordinates.Value<double> (1);
-	            var longitude = recordCoordinates.Value<double> (0);
+				var record = _coffeeService.Records[(int)indexPath.Row];
+				var recordCoordinates = record.geometry.coordinates;
+	            var latitude = recordCoordinates[1];
+	            var longitude = recordCoordinates[0];
 
 				_controller.OnRecordSelected(latitude, longitude);
 			}

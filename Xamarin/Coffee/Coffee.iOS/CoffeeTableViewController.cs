@@ -1,20 +1,25 @@
 using System;
 using Foundation;
 using UIKit;
+using Coffee.Services;
 
 namespace Coffee
 {
     public partial class CoffeeTableViewController : UITableViewController
 	{
+		private readonly ICoffeeService _coffeeService;
+
 		public CoffeeTableViewController (IntPtr handle) : base (handle)
 		{
-
+			_coffeeService = CoffeeService.Instance;
 		}
 
-		public override void ViewDidLoad ()
+		public override async void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			TableView.Source = new CoffeeTableSource (this);
+			await _coffeeService.InitializeAsync();
+			TableView.Source = new CoffeeTableSource (this, _coffeeService);
+			TableView.ReloadData ();
 		}
 
 		public void OnRecordSelected(double latitude, double longitude)

@@ -4,6 +4,8 @@ using Android.Net;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using Coffee.Services;
+using System.Threading.Tasks;
 
 namespace Coffee.Droid
 {
@@ -11,12 +13,21 @@ namespace Coffee.Droid
 	public class CoffeeListActivity : ListActivity
 	{
 		private CoffeeListAdapter _adapter;
+		private ICoffeeService _coffeeService;
 
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
-			this.ListAdapter = _adapter = new CoffeeListAdapter(this);
+			this._coffeeService = CoffeeService.Instance;
+
+			Task.Run (async () => {
+				await _coffeeService.InitializeAsync();
+				this.RunOnUiThread(() =>
+					{
+						this.ListAdapter = _adapter = new CoffeeListAdapter(this, _coffeeService);
+					});
+			});
 		}
 
 		protected override void OnListItemClick (ListView l, View v, int position, long id)
