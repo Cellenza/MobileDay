@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport"  content="user-scalable=0, initial-scale=1, maximum-scale=1, minimum-scale=0.75, width=device-width, height=device-height, target-densitydpi=device-dpi"   />
+  <link rel="stylesheet" type="text/css" href="theme/pardefaut.css">
+</head>
+
+<html lang="en" ng-app="coffiz" class="no-js">
+<body>
+  <ul class="menu">
+    <li><a href="#/liste">liste</a></li>
+    <li><a href="#/carte">carte</a></li>
+    <li><a href="#/apropos">&agrave; propos</a></li>
+  </ul>
+
+  <div id="root" ng-view></div>
+
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <script src="cordova.js"></script>
+  <script src="map-ready.js"></script>
+
+  <script src="index.js"></script>
+  <script src="services/coffiz.js"></script>
+  <script src="liste/liste.js"></script>
+  <script src="carte/carte.js"></script>
+  <script src="apropos/apropos.js"></script>
+</body>
+</html>
