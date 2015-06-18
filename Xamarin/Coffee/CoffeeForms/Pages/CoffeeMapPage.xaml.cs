@@ -19,6 +19,7 @@ namespace CoffeeForms
 			_latitude = latitude;
 			_longitude = longitude;
 			_coffeeName = coffeName;
+			Title = coffeName;
 		}
 
 		protected override void OnAppearing ()
@@ -28,7 +29,7 @@ namespace CoffeeForms
 			this.MyMap.MoveToRegion(
 				MapSpan.FromCenterAndRadius(
 					new Position(_latitude, _longitude),
-					Distance.FromKilometers(0.2d)));
+					Distance.FromKilometers(0.5d)));
 
 			this.MyMap.Pins.Add (new Pin () {
 				Label = _coffeeName,

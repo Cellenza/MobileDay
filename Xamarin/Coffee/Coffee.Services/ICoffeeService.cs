@@ -13,5 +13,4 @@ namespace Coffee.Services
 		IReadOnlyList<Record> Records { get; }
 		Task InitializeAsync();
 	}
-	
 }

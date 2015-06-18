@@ -1,6 +1,9 @@
 ﻿using System;
 
 using Xamarin.Forms;
+using GalaSoft.MvvmLight.Ioc;
+using Coffee.Services;
+using Microsoft.Practices.ServiceLocation;
 
 namespace CoffeeForms
 {
@@ -8,6 +11,9 @@ namespace CoffeeForms
 	{
 		public App ()
 		{
+			SimpleIoc.Default.Register<ICoffeeService, CoffeeService> ();
+			ServiceLocator.SetLocatorProvider (() => SimpleIoc.Default);
+
 			// The root page of your application
 			MainPage = new NavigationPage(new CoffeeForms.MainPage());
 		}

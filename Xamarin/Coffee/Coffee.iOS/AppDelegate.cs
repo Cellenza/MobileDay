@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using Coffee.Services;
 
 namespace Coffee
 {
@@ -8,6 +9,10 @@ namespace Coffee
 	[Register ("AppDelegate")]
 	public class AppDelegate : UIApplicationDelegate
 	{
+		public AppDelegate ()
+		{
+			InitializeIoc ();
+		}
 		// class-level declarations
 
 		public override UIWindow Window {
@@ -15,10 +20,19 @@ namespace Coffee
 			set;
 		}
 
+		private void InitializeIoc()
+		{
+			var container = GalaSoft.MvvmLight.Ioc.SimpleIoc.Default;
+			container.Register<ICoffeeService, CoffeeService> ();
+			Microsoft.Practices.ServiceLocation.ServiceLocator.SetLocatorProvider (() => container);
+		}
+
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
+
+
 
 			// Code to start the Xamarin Test Cloud Agent
 			#if ENABLE_TEST_CLOUD

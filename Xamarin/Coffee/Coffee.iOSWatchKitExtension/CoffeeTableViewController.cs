@@ -14,7 +14,7 @@ namespace Coffee.iOSWatchKitExtension
 
 		public CoffeeTableViewController (IntPtr handle) : base (handle)
 		{
-			_coffeeService = CoffeeService.Instance;
+			_coffeeService =  Microsoft.Practices.ServiceLocation.ServiceLocator.Current.GetInstance<ICoffeeService>();
 		}
 
 		public override async void WillActivate ()

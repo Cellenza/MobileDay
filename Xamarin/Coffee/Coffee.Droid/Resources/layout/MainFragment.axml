@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainPageLabel"
+        android:text="@string/mainpage_label"
+        android:gravity="center_horizontal"
+        android:textSize="28dip" />
+    <ImageView
+        android:src="@drawable/cafe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView1"
+        android:scaleType="fitStart"
+        android:layout_gravity="top"
+        android:adjustViewBounds="true" />
+    <Button
+        android:id="@+id/myButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/find_coffee" />
+</LinearLayout>

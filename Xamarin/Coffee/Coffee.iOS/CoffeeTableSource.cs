@@ -39,19 +39,10 @@ namespace Coffee
             return cell;
         }
 
-        public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-        {
-			try
-			{
-				var record = _coffeeService.Records[(int)indexPath.Row];
-				var recordCoordinates = record.geometry.coordinates;
-	            var latitude = recordCoordinates[1];
-	            var longitude = recordCoordinates[0];
-
-				_controller.OnRecordSelected(latitude, longitude);
-			}
-			catch {
-			}
-        }
+		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+		{
+			var record = _coffeeService.Records[(int)indexPath.Row];
+  			_controller.OnRecordSelected(record);
+		}
     }
 }
