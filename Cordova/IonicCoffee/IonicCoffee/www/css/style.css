@@ -1,0 +1,15 @@
+/* Empty. Add your own CSS if you like */
+body .about{
+  font-family: Roboto, sans-serif;
+  background-image: url(../media/banner.jpg);
+}
+
+#map-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.scroll {
+    height: 100%;
+}
+ 

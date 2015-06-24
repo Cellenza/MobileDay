@@ -1,0 +1,11 @@
+<ion-view view-title="Listes">
+    <ion-content>
+        <ion-liste>
+            <ion-item ng-repeat="cafe in cafes"  href="#/tab/carte/{{cafe.id}}">
+                <h2>{{cafe.nom}}</h2>
+                <div>{{cafe.adresse}}</div>
+                <div>dans le {{cafe.arrondissement}}</div>
+            </ion-item>
+        </ion-liste>
+    </ion-content>
+</ion-view>
