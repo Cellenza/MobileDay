@@ -1,0 +1,152 @@
+body {
+  font-family: Roboto, sans-serif;
+  background-image: url(../media/banner.jpg);
+}
+
+html, div, body, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+a, a:hover, a:active, a:visited {
+  text-decoration: none;
+  color: #777;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.menu {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  z-index: 100;
+  background-color: #fff;
+  color: #555;
+  list-style-type: none;
+}
+
+.menu li {
+  display: inline-block; 
+  padding:.5em;
+}
+
+.menu li img {
+  display: none;
+}
+
+.menu a, .menu a:hover, .menu a:active, .menu a:visited {
+  text-decoration: none;
+  color: #555;
+  font-size: 1.3em
+}
+
+#coffee-list {
+  padding: 5px 0 0 5px;
+  padding-top: 3em;
+  background: #fff;
+  background-image: none;
+}
+
+#coffee-list .coffee-shop{
+  display: inline-block;
+  margin: 0 5px 5px 0;
+  padding: 1em;
+  width: 20em;
+  border: #ccc solid 1px;
+  border-radius: .5em;
+}
+
+#root {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+#map-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.call4coffee{
+  background: #4cf;
+  color: #fff;
+  display: none;
+  position: fixed;
+  top: 30%;
+  width: 10em;
+  height: 10em;
+  border-radius: 10em;
+  text-align: center;
+}
+
+.call4coffee span {
+  vertical-align: middle;
+  margin-top: 40%;
+  display: block;
+}
+
+@media only screen and (min-width: 721px) {
+
+  .menu {
+    top: 0;
+  }
+
+}
+
+
+@media only screen and (max-width: 720px) {
+
+  .call4coffee{
+    display: inline-block;
+  }
+
+  #coffee-list {
+    padding: 0;
+    padding-bottom: 3em;
+  }
+
+  #coffee-list .coffee-shop{
+    display: block;
+    border: none;
+    padding: 1em;
+    width: 100%;
+    border-bottom: #ccc solid 1px;
+    border-radius: 0;
+    margin: 0;
+    padding-left:0;
+    padding-right: 0;
+  }
+
+  #coffee-list .coffee-shop-container{
+    padding-left:1em;
+  }
+
+  .menu { 
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+  }
+
+  .menu li {
+    width: 24%;
+    text-align: center;
+
+  }
+
+  .menu li img {
+    display: inline-block;
+    border:  none;
+    height: 30px;
+    width: 30px;
+  }
+
+  .menu li span {
+    display: none;
+  }
+}
+

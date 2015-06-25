@@ -1,0 +1,14 @@
+<div id="coffee-list">
+
+
+  <div class="coffee-shop" ng-repeat="cafe in cafes">
+    <div class="coffee-shop-container">
+      <a href="#/carte/{{cafe.id}}">
+        <h2>{{cafe.nom}}</h2>
+        <div>{{cafe.adresse}}</div>
+        <div>dans le {{cafe.arrondissement}}</div>
+      </a>
+    </div>
+  </div>
+    
+</div>
