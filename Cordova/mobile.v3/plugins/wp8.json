@@ -1,0 +1,46 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "Properties/WMAppManifest.xml": {
+                "parents": {
+                    "/Deployment/App/Capabilities": [
+                        {
+                            "xml": "<Capability Name=\"ID_CAP_LOCATION\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"MyPlugin\"><param name=\"wp-package\" value=\"MuPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Call4Coffee\"><param name=\"wp-package\" value=\"Call4Coffee\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "{2090ce10-122c-11e5-9cfb-2b7f16dcce54}"
+        },
+        "custom.myplugin": {
+            "PACKAGE_NAME": "{2090ce10-122c-11e5-9cfb-2b7f16dcce54}"
+        },
+        "custom.call4coffee": {
+            "PACKAGE_NAME": "{2090ce10-122c-11e5-9cfb-2b7f16dcce54}"
+        }
+    },
+    "dependent_plugins": {}
+}

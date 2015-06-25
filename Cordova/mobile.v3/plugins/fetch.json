@@ -1,0 +1,26 @@
+{
+    "cordova-plugin-geolocation": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-geolocation"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "custom.myplugin": {
+        "source": {
+            "type": "local",
+            "path": "custom\\myplugin"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "custom.call4coffee": {
+        "source": {
+            "type": "local",
+            "path": "custom\\call4coffee"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}

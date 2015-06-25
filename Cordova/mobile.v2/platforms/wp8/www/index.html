@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximun-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="theme/pardefaut.css">
+</head>
+
+<html lang="en" ng-app="coffiz" class="no-js">
+<body>
+  <ul class="menu">
+    <li><a href="#/apropos"><img src="media/home-icon.png"><span>ACCUEIL</span></a></li>
+    <li><a href="#/liste"><img src="media/list-icon.png"><span>LISTE</span></a></li>
+    <li><a href="#/carte"><img src="media/map-icon.png"><span>CARTE</span></a></li>
+  </ul>
+
+  <div id="root" ng-view></div>
+
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+  <script src="map-ready.js"></script>
+
+  <script src="index.js"></script>
+  <script src="services/coffiz.js"></script>
+  <script src="liste/liste.js"></script>
+  <script src="carte/carte.js"></script>
+  <script src="apropos/apropos.js"></script>
+  <script type="text/javascript">
+    alert('eeeeeee');
+    /*document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        alert(device.cordova);
+    }*/
+  </script>
+</body>
+</html>
