@@ -1,0 +1,75 @@
+﻿<Page
+    x:Class="CoffeeUniversal.Views.CoffeeListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:coffeeService="using:Coffee.Services"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    mc:Ignorable="d">
+
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Small">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="listView.(RelativePanel.AlignBottomWithPanel)" Value="False" />
+                        <Setter Target="listView.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="MyMap.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Middle">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="700" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="listView.(RelativePanel.AlignBottomWithPanel)" Value="False" />
+                        <Setter Target="listView.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="listView.MaxHeight" Value="300" />
+                        <Setter Target="MyMap.Visibility" Value="Visible" />
+                        <Setter Target="MyMap.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="MyMap.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="MyMap.(RelativePanel.AlignTopWithPanel)" Value="False" />
+                        <Setter Target="MyMap.(RelativePanel.RightOf)" Value="{x:Null}" />
+                        <Setter Target="MyMap.(RelativePanel.Below)" Value="listView" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Big">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <ListView x:Name="listView"
+                  ItemsSource="{x:Bind Model.Records, Mode=OneWay}"
+                  SelectedItem="{Binding SelectedRecord, Mode=TwoWay}"
+                  RelativePanel.AlignLeftWithPanel="True"
+                  RelativePanel.AlignTopWithPanel="True"
+                  RelativePanel.AlignBottomWithPanel="True"
+                  >
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="coffeeService:Record">
+                    <TextBlock Text="{x:Bind fields.nom_du_cafe}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <maps:MapControl x:Name="MyMap" ZoomLevel="16"
+                         Center="{x:Bind Model.CenterPoint, Mode=OneWay}"
+                         RelativePanel.RightOf="listView"
+                         RelativePanel.AlignRightWithPanel="True"
+                         RelativePanel.AlignTopWithPanel="True"
+                         RelativePanel.AlignBottomWithPanel="True">
+            <Grid maps:MapControl.Location="{x:Bind Model.CenterPoint, Mode=OneWay}">
+                <Ellipse Fill="Red"/>
+                <TextBlock Text="{x:Bind Model.SelectedRecord.fields.nom_du_cafe, Mode=OneWay}" FontWeight="Bold" Foreground="White" Margin="10"/>
+            </Grid>
+        </maps:MapControl>
+    </RelativePanel>
+</Page>

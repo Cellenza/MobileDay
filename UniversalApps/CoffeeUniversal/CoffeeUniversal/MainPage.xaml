@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="CoffeeUniversal.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CoffeeUniversal"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="Assets_Cafe_jpg" Source="/Assets/Cafe.jpg" d:LayoutOverrides="TopPosition, BottomPosition" Margin="30,30,30,0" VerticalAlignment="Top" MaxHeight="300" />
+        <Button x:Name="button" Content="Trouve-moi un cafe" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Margin="0,100,0,0" Click="button_Click" />
+
+    </Grid>
+</Page>
