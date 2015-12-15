@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13A451" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="58" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="4">
+            <objects>
+                <viewController id="5" sceneMemberID="viewController" customClass="CoffeeViewController" storyboardIdentifier="Home">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2"/>
+                        <viewControllerLayoutGuide type="bottom" id="3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1 café - 1 euro" lineBreakMode="tailTruncation" minimumFontSize="10" id="9" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center">
+                                <rect key="frame" x="27.5" y="78" width="265" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <rect key="frame" x="104" y="99" width="112" height="20.5"/>
+                                </variation>
+                                <constraints>
+                                    <constraint id="637" firstItem="9" firstAttribute="height" constant="20"/>
+                                    <constraint id="638" firstItem="9" firstAttribute="width" constant="265"/>
+                                </constraints>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="17" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="134.5" y="285" width="51" height="30"/>
+                                <state key="normal" title="Trouver">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <rect key="frame" x="134.5" y="358.5" width="51" height="30"/>
+                                </variation>
+                                <constraints>
+                                    <constraint id="645" firstItem="17" firstAttribute="height" constant="30"/>
+                                    <constraint id="646" firstItem="17" firstAttribute="width" constant="51"/>
+                                </constraints>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="182" translatesAutoresizingMaskIntoConstraints="NO" image="Cafe.jpg">
+                                <rect key="frame" x="20" y="132" width="280" height="100"/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <rect key="frame" x="-20" y="140.5" width="360" height="175"/>
+                                    <mask key="constraints">
+                                        <include reference="208"/>
+                                        <include reference="209"/>
+                                        <include reference="210"/>
+                                    </mask>
+                                </variation>
+                                <constraints>
+                                    <constraint id="642" firstAttribute="width" secondItem="182" secondAttribute="height" constant="0.0" multiplier="14:5"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="204"/>
+                                <include reference="205"/>
+                                <include reference="206"/>
+                                <include reference="207"/>
+                                <include reference="211"/>
+                                <include reference="212"/>
+                            </mask>
+                        </variation>
+                        <constraints>
+                            <constraint firstItem="9" firstAttribute="centerX" secondItem="6" secondAttribute="centerX" constant="0.0" id="635"/>
+                            <constraint firstItem="9" firstAttribute="top" secondItem="2" secondAttribute="bottom" constant="14" id="636"/>
+                            <constraint firstItem="182" firstAttribute="top" secondItem="9" secondAttribute="bottom" constant="34" id="639"/>
+                            <constraint firstItem="6" firstAttribute="trailing" secondItem="182" secondAttribute="trailing" constant="20" id="640"/>
+                            <constraint firstItem="182" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="20" id="641"/>
+                            <constraint firstItem="17" firstAttribute="centerX" secondItem="6" secondAttribute="centerX" constant="0.0" id="643"/>
+                            <constraint firstItem="17" firstAttribute="top" secondItem="182" secondAttribute="bottom" constant="53" id="644"/>
+                        </constraints>
+                    </view>
+                    <navigationItem id="107" key="navigationItem" title="1 café !"/>
+                    <connections>
+                        <outlet property="FindCoffeeButton" destination="17" id="name-outlet-17"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="377" y="187"/>
+        </scene>
+        <scene sceneID="57">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="58" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="61">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                    </navigationBar>
+                    <connections>
+                        <segue id="108" destination="5" kind="relationship" relationship="rootViewController"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="62" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-57" y="57"/>
+        </scene>
+        <scene sceneID="224">
+            <objects>
+                <viewController id="225" sceneMemberID="viewController" customClass="CoffeMapViewController" storyboardIdentifier="Map">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="222"/>
+                        <viewControllerLayoutGuide type="bottom" id="223"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="226">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="618" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="209" y="232" width="247" height="357"/>
+                            </mapView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="618" firstAttribute="leading" secondItem="226" secondAttribute="leading" constant="0.0" id="625"/>
+                            <constraint firstItem="618" firstAttribute="top" secondItem="222" secondAttribute="bottom" constant="0.0" id="626"/>
+                            <constraint firstItem="618" firstAttribute="bottom" secondItem="223" secondAttribute="top" constant="0.0" id="627"/>
+                            <constraint firstItem="618" firstAttribute="trailing" secondItem="226" secondAttribute="trailing" constant="0.0" id="628"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="MyMap" destination="618" id="name-outlet-618"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="227" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1255" y="86"/>
+        </scene>
+        <scene sceneID="662">
+            <objects>
+                <viewController id="663" sceneMemberID="viewController" customClass="CoffeeTableViewController" storyboardIdentifier="List">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="660"/>
+                        <viewControllerLayoutGuide type="bottom" id="661"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="664">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="667" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="668" rowHeight="44">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="669" tableViewCell="668">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="674" firstItem="667" firstAttribute="trailing" secondItem="664" secondAttribute="trailing"/>
+                            <constraint id="675" firstItem="667" firstAttribute="leading" secondItem="664" secondAttribute="leading"/>
+                            <constraint id="676" firstItem="667" firstAttribute="bottom" secondItem="664" secondAttribute="bottom"/>
+                            <constraint id="677" firstItem="667" firstAttribute="top" secondItem="660" secondAttribute="bottom"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="TableView" destination="667" id="name-outlet-667"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="665" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="784" y="211"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Cafe.jpg" width="720" height="478"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
