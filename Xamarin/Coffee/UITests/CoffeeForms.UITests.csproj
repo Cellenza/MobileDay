@@ -42,20 +42,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\iOS\CoffeeForms.iOS.csproj">
-      <Project>{19119D34-DFCA-4F34-8AB6-A15DD34C0E45}</Project>
-      <Name>CoffeeForms.iOS</Name>
-      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Droid\CoffeeForms.Droid.csproj">
-      <Project>{29C83ED4-AEE4-4A6B-AAE8-676FF0885252}</Project>
-      <Name>CoffeeForms.Droid</Name>
-      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
-      <Private>False</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
 </Project>

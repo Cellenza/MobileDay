@@ -124,11 +124,6 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.AppExtension.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <ItemGroup>
-    <ProjectReference Include="..\Coffee.iOSWatchKitApp\Coffee.iOSWatchKitApp.csproj">
-      <Project>{2FA07A86-EE0C-4698-90FB-B678B06A7974}</Project>
-      <Name>Coffee.iOSWatchKitApp</Name>
-      <IsWatchApp>True</IsWatchApp>
-    </ProjectReference>
     <ProjectReference Include="..\Coffee.Services\Coffee.Services.csproj">
       <Project>{319AFB7B-B562-48AE-831F-33E78514C222}</Project>
       <Name>Coffee.Services</Name>

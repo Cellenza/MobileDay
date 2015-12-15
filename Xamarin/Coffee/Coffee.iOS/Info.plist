@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Coffee</string>
+	<string>CoffeeClassic</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.Coffee</string>
+	<string>com.cellenza.coffeeclassic</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
