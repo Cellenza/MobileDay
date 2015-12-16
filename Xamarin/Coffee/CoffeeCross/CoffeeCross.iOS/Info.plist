@@ -43,5 +43,7 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
+	<key>CFBundleDisplayName</key>
+	<string>CoffeeCross</string>
 </dict>
 </plist>
