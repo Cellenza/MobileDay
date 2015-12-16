@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="58">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--1 café !-->
+        <scene sceneID="4">
+            <objects>
+                <viewController storyboardIdentifier="HomeView" id="5" customClass="HomeView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2"/>
+                        <viewControllerLayoutGuide type="bottom" id="3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1 café - 1 euro" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9">
+                                <rect key="frame" x="167" y="78" width="265" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="637"/>
+                                    <constraint firstAttribute="width" constant="265" id="638"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17">
+                                <rect key="frame" x="274" y="385" width="51" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="645"/>
+                                    <constraint firstAttribute="width" constant="51" id="646"/>
+                                </constraints>
+                                <state key="normal" title="Trouver">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Cafe.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="182">
+                                <rect key="frame" x="20" y="132" width="560" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="182" secondAttribute="height" multiplier="14:5" id="642"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9" firstAttribute="centerX" secondItem="6" secondAttribute="centerX" id="635"/>
+                            <constraint firstItem="9" firstAttribute="top" secondItem="2" secondAttribute="bottom" constant="14" id="636"/>
+                            <constraint firstItem="182" firstAttribute="top" secondItem="9" secondAttribute="bottom" constant="34" id="639"/>
+                            <constraint firstAttribute="trailing" secondItem="182" secondAttribute="trailing" constant="20" id="640"/>
+                            <constraint firstItem="182" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="20" id="641"/>
+                            <constraint firstItem="17" firstAttribute="centerX" secondItem="6" secondAttribute="centerX" id="643"/>
+                            <constraint firstItem="17" firstAttribute="top" secondItem="182" secondAttribute="bottom" constant="53" id="644"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="1 café !" id="107"/>
+                    <connections>
+                        <outlet property="FindCoffeeButton" destination="17" id="name-outlet-17"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="377" y="187"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="57">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="58" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="61">
+                        <rect key="frame" x="0.0" y="20" width="880" height="44"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5" kind="relationship" relationship="rootViewController" id="108"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="62" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-57" y="57"/>
+        </scene>
+        <!--Coffe Map View-->
+        <scene sceneID="224">
+            <objects>
+                <viewController storyboardIdentifier="CoffeeMapView" id="225" customClass="CoffeeMapView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="222"/>
+                        <viewControllerLayoutGuide type="bottom" id="223"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="226">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="618">
+                                <rect key="frame" x="209" y="232" width="247" height="357"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="618" firstAttribute="leading" secondItem="226" secondAttribute="leading" id="625"/>
+                            <constraint firstItem="618" firstAttribute="top" secondItem="222" secondAttribute="bottom" id="626"/>
+                            <constraint firstItem="618" firstAttribute="bottom" secondItem="223" secondAttribute="top" id="627"/>
+                            <constraint firstItem="618" firstAttribute="trailing" secondItem="226" secondAttribute="trailing" id="628"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="MyMap" destination="618" id="name-outlet-618"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="227" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1255" y="86"/>
+        </scene>
+        <!--Coffee List View-->
+        <scene sceneID="662">
+            <objects>
+                <viewController storyboardIdentifier="CoffeeListView" id="663" customClass="CoffeeListView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="660"/>
+                        <viewControllerLayoutGuide type="bottom" id="661"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="664">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="667">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="667" firstAttribute="trailing" secondItem="664" secondAttribute="trailing" id="674"/>
+                            <constraint firstItem="667" firstAttribute="leading" secondItem="664" secondAttribute="leading" id="675"/>
+                            <constraint firstItem="667" firstAttribute="bottom" secondItem="664" secondAttribute="bottom" id="676"/>
+                            <constraint firstItem="667" firstAttribute="top" secondItem="660" secondAttribute="bottom" id="RCG-RH-Fkn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="TableView" destination="667" id="name-outlet-667"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="665" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="784" y="211"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Cafe.jpg" width="720" height="478"/>
+    </resources>
+</document>
