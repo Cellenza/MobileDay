@@ -53,7 +53,7 @@ namespace CoffeeCross.iOS
 			{
 				var latitude = ViewModel.Latitude;
 				var longitude = ViewModel.Longitude;
-				var coords = new CLLocationCoordinate2D (latitude.Value, longitude.Value);
+				var coords = new CLLocationCoordinate2D (latitude ?? 0, longitude ?? 0);
 
 				SetMapToCoordinate (coords);
 

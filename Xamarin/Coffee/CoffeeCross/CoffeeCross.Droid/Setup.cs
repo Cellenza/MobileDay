@@ -1,7 +1,6 @@
 using Android.Content;
 using Cirrious.CrossCore;
 using Cirrious.CrossCore.Platform;
-using Cirrious.CrossCore.Plugins;
 using Cirrious.MvvmCross.Droid.Platform;
 using Cirrious.MvvmCross.Droid.Views;
 using Cirrious.MvvmCross.ViewModels;
@@ -41,7 +40,5 @@ namespace CoffeeCross.Droid
             Mvx.ConstructAndRegisterSingleton<ICoffeeService, CoffeeService>();
             Mvx.ConstructAndRegisterSingleton<IFragmentTypeLookup, FragmentTypeLookup>();
         }
-
-
     }
 }
