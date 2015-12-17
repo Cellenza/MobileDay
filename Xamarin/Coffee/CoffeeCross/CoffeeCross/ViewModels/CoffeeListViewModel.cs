@@ -45,7 +45,8 @@ namespace CoffeeCross
 
 		private void ExecuteSelectRecord(Record record)
 		{
-			//ShowViewModel<CoffeeMapViewModel>(record);
+		    if (record?.geometry == null)
+		        return;
 
 			var recordCoordinates = record.geometry.coordinates;
 			var latitude = recordCoordinates[1];
